@@ -1,0 +1,12 @@
+Default environment:
+a -> (var-exp a) -> 1
+b -> (var-exp b) -> 2
+Nested environment: current -> parent -> root
+a -> (var-exp a) -> 100
+middle -> (var-exp middle) -> 20
+b -> (var-exp b) -> 2
+Missing variable (caught so the demo can continue):
+error: variable not found
+
+Automated test results:
+12 success(es) 0 failure(s) 0 error(s) 12 test(s) run

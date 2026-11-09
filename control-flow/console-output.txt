@@ -1,0 +1,40 @@
+TASK 1: IF CONDITION AND DEBUGGING
+True branch: (if (a < 10) ((a = 5)) ((a = 99)))
+  final scope = ((a 5))
+False branch: (if (a < 10) ((a = 5)) ((a = 99)))
+  final scope = ((a 99))
+Debug: unchosen branch is skipped: (if #t ((a = 7)) ((missing + 1)))
+  final scope = ((a 7))
+Debug: reject a number used as a boolean condition
+  Caught expected error: condition: expected a boolean, got 0
+
+TASK 2: WHILE (CHECK BEFORE BODY)
+Start a = 7; print after each increment:
+  value = 8
+  value = 9
+  value = 10
+While: (while (a < 10) ((a + 1) (print a)))
+  final scope = ((a 10))
+Initially false: zero iterations: (while (a < 10) ((a + 1)))
+  final scope = ((a 10))
+
+TASK 3: DO-WHILE (BODY BEFORE CHECK)
+Start a = 7; print after each increment:
+  value = 8
+  value = 9
+  value = 10
+Do-while: (do ((a + 1) (print a)) while (a < 10))
+  final scope = ((a 10))
+Initially false: still one iteration: (do ((a + 1)) while (a < 10))
+  final scope = ((a 11))
+
+SCOPE CHECKS (BOTH LOOP TYPES)
+Local temp: (while (a < 2) ((var temp a) (a + 1)))
+  final scope = ((a 2))
+  Caught expected error: lookup: variable not found: temp
+Local temp: (do ((var temp a) (a + 1)) while (a < 2))
+  final scope = ((a 2))
+  Caught expected error: lookup: variable not found: temp
+
+AUTOMATED REGRESSION TESTS
+22 success(es) 0 failure(s) 0 error(s) 22 test(s) run

@@ -1,0 +1,13 @@
+TASK 1: assignment
+(assign-exp (var-exp a) (num-exp 1))
+1
+5
+0
+TASK 2: for loop
+10
+10
+FALSE CONDITION: body and step skipped
+10
+Loop-local i removed: #t
+Final environment: (((b 10) (a 10)))
+14 success(es) 0 failure(s) 0 error(s) 14 test(s) run

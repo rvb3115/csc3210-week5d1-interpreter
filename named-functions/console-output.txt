@@ -1,0 +1,35 @@
+T1
+10
+env: '(((a 5) (b 10)))
+T2
+PARSER ERROR: main must hold a list of statements.
+env: '(((a 1) (b 2)))
+T3
+2500
+1
+#<void>
+env: '(((x 2500) (sum_seq (func-val (a b s) (list-exp (assign-exp ((var-exp c) (math-exp / (math-exp * (math-exp + (var-exp a) (var-exp b)) (math-exp + (math-exp / (math-exp - (var-exp b) (var-exp a)) (var-exp s)) (num-exp 1))) (num-exp 2)))) (return-exp (var-exp c))))) (a 1) (b 2)))
+T4
+7
+#<void>
+env: '(((y #<void>) (hello (func-val (n) (list-exp (fire-exp (var-exp n))))) (a 1) (b 2)))
+T5
+3
+env: '(((first (func-val (n) (list-exp (return-exp (var-exp n)) (fire-exp (num-exp 999))))) (a 1) (b 2)))
+T6
+INTERPRETER ERROR: wrong number of arguments.
+env: '(((sum_seq (func-val (a b s) (list-exp (return-exp (var-exp a))))) (a 1) (b 2)))
+T7
+INTERPRETER ERROR: not a function.
+env: '(((q 5) (a 1) (b 2)))
+T8
+21
+10
+env: '(((addone (func-val (k) (list-exp (return-exp (math-exp + (var-exp k) (num-exp 1)))))) (k 10) (a 1) (b 2)))
+B1
+120
+env: '(((fact (func-val (n) (list-exp (ask-exp (boolean-exp < (var-exp n) (num-exp 2)) (list-exp (return-exp (num-exp 1))) (list-exp (return-exp (math-exp * (var-exp n) (call-exp (var-exp fact) ((math-exp - (var-exp n) (num-exp 1))))))))))) (a 1) (b 2)))
+B2
+40
+-1
+env: '(((find (func-val (lim) (list-exp (assign-exp ((var-exp i) (num-exp 0))) (while-exp (boolean-exp < (var-exp i) (num-exp 100)) (list-exp (assign-exp ((var-exp i) (math-exp + (var-exp i) (num-exp 1)))) (ask-exp (boolean-exp == (var-exp i) (var-exp lim)) (list-exp (return-exp (math-exp * (var-exp i) (num-exp 10)))) (list-exp (assign-exp ((var-exp i) (var-exp i))))))) (return-exp (num-exp -1))))) (a 1) (b 2)))
